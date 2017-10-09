@@ -28,11 +28,12 @@ public class TC_Person {
 	@Test
 	public void testGetAge() {
 		GregorianCalendar calendar = new GregorianCalendar(1971, 3, 23);
+		
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
-		assertEquals(45, actual);
+		assertEquals(46, actual);
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 	}
