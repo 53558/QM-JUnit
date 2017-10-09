@@ -34,6 +34,21 @@ public class TC_Person {
 		assertEquals(46, actual);
 	}
 	
+	@Test
+	public void testGetAgeYesterday() {
+		
+	}
+	
+	@Test
+	public void testGetAgeToday() {
+		
+	}
+	
+	@Test
+	public void testGetAgeTomorrow() {
+		
+	}		
+	
 	@After
 	public void tearDown() throws Exception {
 	}
