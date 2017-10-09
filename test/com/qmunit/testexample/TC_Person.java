@@ -2,6 +2,8 @@ package com.qmunit.testexample;
 
 import static org.junit.Assert.*;
 
+import java.util.GregorianCalendar;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,9 +20,16 @@ public class TC_Person {
 	}
 
 	@Test
-	public void testGetAge() {
+	public void testGetDefaultAge() {
 		int actual = person.getAge();
 		assertEquals(0, actual);
+	}
+
+	public void testGetAge() {
+		GregorianCalendar calendar = new GregorianCalendar(1971, 3, 23);
+		person.setBirthDate(calendar.getTime());
+		int actual = person.getAge();
+		assertEquals(31, actual);
 	}
 
 	@After
