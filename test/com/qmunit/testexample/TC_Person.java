@@ -30,7 +30,7 @@ public class TC_Person {
 		GregorianCalendar calendar = new GregorianCalendar(1971, 3, 23);
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
-		assertEquals(36, actual);
+		assertEquals(45, actual);
 	}
 
 	@After
