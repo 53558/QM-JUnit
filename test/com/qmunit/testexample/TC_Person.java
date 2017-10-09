@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.qmjunit.example.Person;
+
 public class TC_Person {
 
 	protected Person person;
