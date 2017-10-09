@@ -29,7 +29,7 @@ public class TC_Person {
 	public void testGetAgeYesterday() {
 		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
 														   Calendar.getInstance().get(Calendar.MONTH), 
-														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH - 1));
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -51,7 +51,7 @@ public class TC_Person {
 	public void testGetAgeTomorrow() {
 		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
 														   Calendar.getInstance().get(Calendar.MONTH), 
-														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH + 1));
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1);
 
 		person.setBirthDate(calendar.getTime());
 	}
@@ -59,7 +59,7 @@ public class TC_Person {
 	@Test
 	public void testGetAgeLastMonth() {
 		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
-														   Calendar.getInstance().get(Calendar.MONTH - 1), 
+														   Calendar.getInstance().get(Calendar.MONTH) - 1, 
 														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
@@ -70,7 +70,7 @@ public class TC_Person {
 	@Test(expected = IllegalStateException.class)
 	public void testGetAgeNextMonth() {
 		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
-														   Calendar.getInstance().get(Calendar.MONTH + 1), 
+														   Calendar.getInstance().get(Calendar.MONTH) + 1, 
 														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
@@ -78,7 +78,7 @@ public class TC_Person {
 
 	@Test
 	public void testGetAgeLastYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR - 1),
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
 														   Calendar.getInstance().get(Calendar.MONTH), 
 														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
@@ -89,7 +89,7 @@ public class TC_Person {
 
 	@Test(expected = IllegalStateException.class)
 	public void testGetAgeNextYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR + 1),
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) + 1,
 														   Calendar.getInstance().get(Calendar.MONTH), 
 														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
@@ -98,9 +98,9 @@ public class TC_Person {
 	
 	@Test
 	public void testGetOneDayBelowOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR - 1),
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
 														   Calendar.getInstance().get(Calendar.MONTH), 
-														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH + 1));
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1);
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -109,9 +109,9 @@ public class TC_Person {
 	
 	@Test
 	public void testGetoneDayAboveOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR - 1),
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
 														   Calendar.getInstance().get(Calendar.MONTH), 
-														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH - 1));
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -120,8 +120,8 @@ public class TC_Person {
 	
 	@Test
 	public void testGetOneMonthBelowOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR - 1),
-														   Calendar.getInstance().get(Calendar.MONTH + 1), 
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+														   Calendar.getInstance().get(Calendar.MONTH) + 1, 
 														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
@@ -131,9 +131,9 @@ public class TC_Person {
 	
 	@Test
 	public void testGetOneMonthAboveOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR - 1),
-														   Calendar.getInstance().get(Calendar.MONTH - 1), 
-														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH ));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+														   Calendar.getInstance().get(Calendar.MONTH) - 1, 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();

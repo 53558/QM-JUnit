@@ -17,15 +17,23 @@ public class Person {
 			calendar.setTime(birthdate);
 			int birthYear = calendar.get(Calendar.YEAR);
 			
-			if (yearToday == birthYear) {
+			if (Calendar.getInstance().get(Calendar.MONTH) > calendar.get(Calendar.MONTH)  ||
+				Calendar.getInstance().get(Calendar.MONTH) == calendar.get(Calendar.MONTH) &&
+				Calendar.getInstance().get(Calendar.DAY_OF_MONTH) >= calendar.get(Calendar.DAY_OF_MONTH)) {
+				
 				return yearToday - birthYear;
-			} else {
+			
+			} else {				
 				return yearToday - birthYear - 1;
 			}
 		}
 	}
 
-	public void setBirthDate(Date aBirthDate) {
+	public void setBirthDate(Date aBirthDate) throws IllegalStateException {
+		if (aBirthDate.after(Calendar.getInstance().getTime())) {
+			throw new IllegalStateException("Birthday has to be later than the actual date!");
+		}
+		
 		this.birthdate = aBirthDate;
 	}
 }
