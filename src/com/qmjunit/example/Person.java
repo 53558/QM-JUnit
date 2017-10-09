@@ -8,14 +8,15 @@ public class Person {
 
 	protected Date birthdate;
 
-	public int getAge() {
+	public int getAge() throws IllegalStateException {
 		if (birthdate == null) {
-			return 0;
+			throw new IllegalStateException("Birthday was not set!");			
 		} else {
 			int yearToday = Calendar.getInstance().get(Calendar.YEAR);
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(birthdate);
 			int birthYear = calendar.get(Calendar.YEAR);
+			
 			if (yearToday == birthYear) {
 				return yearToday - birthYear;
 			} else {
