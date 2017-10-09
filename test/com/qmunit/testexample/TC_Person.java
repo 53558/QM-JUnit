@@ -131,7 +131,7 @@ public class TC_Person {
 	
 	@Test
 	public void testGetOneMonthAboveOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) -1,
 														   Calendar.getInstance().get(Calendar.MONTH) - 1, 
 														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 

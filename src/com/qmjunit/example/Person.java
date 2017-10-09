@@ -21,8 +21,7 @@ public class Person {
 				Calendar.getInstance().get(Calendar.MONTH) == calendar.get(Calendar.MONTH) &&
 				Calendar.getInstance().get(Calendar.DAY_OF_MONTH) >= calendar.get(Calendar.DAY_OF_MONTH)) {
 				
-				return yearToday - birthYear;
-			
+				return yearToday - birthYear;			
 			} else {				
 				return yearToday - birthYear - 1;
 			}
@@ -30,6 +29,7 @@ public class Person {
 	}
 
 	public void setBirthDate(Date aBirthDate) throws IllegalStateException {
+		
 		if (aBirthDate.after(Calendar.getInstance().getTime())) {
 			throw new IllegalStateException("Birthday has to be later than the actual date!");
 		}
