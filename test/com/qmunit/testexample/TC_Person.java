@@ -25,15 +25,16 @@ public class TC_Person {
 		assertEquals(0, actual);
 	}
 
+	@Test
 	public void testGetAge() {
 		GregorianCalendar calendar = new GregorianCalendar(1971, 3, 23);
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
-		assertEquals(31, actual);
+		assertEquals(36, actual);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
 }
