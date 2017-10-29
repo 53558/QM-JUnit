@@ -19,7 +19,7 @@ public final class CalendarMock extends MockUp<Calendar> {
 	
 	@Mock
 	public int get(int id) {
-		if (id == Calendar.DAY_OF_WEEK) {
+		if (id == Calendar.DAY_OF_MONTH) {
 			return day;
 		}
 		
