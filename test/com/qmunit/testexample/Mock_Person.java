@@ -19,14 +19,14 @@ public class Mock_Person {
 	@Before
 	public void setUp() throws Exception {
 		person = new Person();
-		calendarMock = new CalendarMock(2, 2, 2010).getMockInstance();
+		calendarMock = new CalendarMock(3, 1, 2010).getMockInstance();
 	}
 	
 	@Test
 	public void testGetAgeYesterday() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR),
-														   calendarMock.get(Calendar.MONTH),
-														   calendarMock.get(Calendar.DAY_OF_MONTH) - 1);
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
+														   Calendar.getInstance().get(Calendar.MONTH),
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -35,9 +35,9 @@ public class Mock_Person {
 
 	@Test
 	public void testGetAgeToday() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR),
-														   calendarMock.get(Calendar.MONTH), 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
+				   										   Calendar.getInstance().get(Calendar.MONTH),
+				   										   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -46,18 +46,18 @@ public class Mock_Person {
 
 	@Test(expected = IllegalStateException.class)
 	public void testGetAgeTomorrow() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR),
-														   calendarMock.get(Calendar.MONTH), 
-														   calendarMock.get(Calendar.DAY_OF_MONTH) + 1);
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
+														   Calendar.getInstance().get(Calendar.MONTH), 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1);
 
 		person.setBirthDate(calendar.getTime());
 	}
 	
 	@Test
 	public void testGetAgeLastMonth() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR),
-														   calendarMock.get(Calendar.MONTH) - 1, 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
+														   Calendar.getInstance().get(Calendar.MONTH) - 1, 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -66,18 +66,18 @@ public class Mock_Person {
 
 	@Test(expected = IllegalStateException.class)
 	public void testGetAgeNextMonth() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR),
-														   calendarMock.get(Calendar.MONTH) + 1, 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR),
+														   Calendar.getInstance().get(Calendar.MONTH) + 1, 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 	}
 
 	@Test
 	public void testGetAgeLastYear() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR) - 1,
-														   calendarMock.get(Calendar.MONTH), 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+														   Calendar.getInstance().get(Calendar.MONTH), 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -86,18 +86,17 @@ public class Mock_Person {
 
 	@Test(expected = IllegalStateException.class)
 	public void testGetAgeNextYear() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR) + 1,
-														   calendarMock.get(Calendar.MONTH), 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
-
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) + 1,
+														   Calendar.getInstance().get(Calendar.MONTH), 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 		person.setBirthDate(calendar.getTime());
 	}
 	
 	@Test
 	public void testGetOneDayBelowOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR) - 1,
-														   calendarMock.get(Calendar.MONTH), 
-														   calendarMock.get(Calendar.DAY_OF_MONTH) + 1);
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+														   Calendar.getInstance().get(Calendar.MONTH), 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1);
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -106,9 +105,9 @@ public class Mock_Person {
 	
 	@Test
 	public void testGetoneDayAboveOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR) - 1,
-														   calendarMock.get(Calendar.MONTH), 
-														   calendarMock.get(Calendar.DAY_OF_MONTH) - 1);
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+														   Calendar.getInstance().get(Calendar.MONTH), 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -117,9 +116,9 @@ public class Mock_Person {
 	
 	@Test
 	public void testGetOneMonthBelowOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR) - 1,
-														   calendarMock.get(Calendar.MONTH) + 1, 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) - 1,
+														   Calendar.getInstance().get(Calendar.MONTH) + 1, 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
@@ -128,9 +127,9 @@ public class Mock_Person {
 	
 	@Test
 	public void testGetOneMonthAboveOneYear() {
-		GregorianCalendar calendar = new GregorianCalendar(calendarMock.get(Calendar.YEAR) -1,
-														   calendarMock.get(Calendar.MONTH) - 1, 
-														   calendarMock.get(Calendar.DAY_OF_MONTH));
+		GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR) -1,
+														   Calendar.getInstance().get(Calendar.MONTH) - 1, 
+														   Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
 		person.setBirthDate(calendar.getTime());
 		int actual = person.getAge();
