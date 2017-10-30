@@ -11,10 +11,20 @@ import org.junit.Test;
 
 import com.qmjunit.example.Person;
 
+import mockit.Mock;
+import mockit.MockUp;
+
 public class TC_Person {
 
 	protected Person person;
 
+	public static class GregCalendarMock extends MockUp<GregorianCalendar>{
+		@Mock
+		public static Calendar getInstance() {
+			return new GregorianCalendar(2010, 1, 3);
+		}
+	}
+	
 	@Before
 	public void setUp() throws Exception {
 		person = new Person();
